@@ -1,8 +1,16 @@
 #include <iostream>
+#include <GLFW/glfw3.h>
+#include "Core/window.h"
 
 int main()
 {
-	std::cout << "hallo";
-	
-	return 0;
+    Core::Window& window = Core::Window::getInstanse();
+
+    while (!glfwWindowShouldClose(window.getGLFWwindow()))
+    {
+        glfwPollEvents();
+        glfwSwapBuffers(window.getGLFWwindow());
+    }
+
+    return 0;
 }
